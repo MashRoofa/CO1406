@@ -1,0 +1,3 @@
+﻿  lab01.cpp
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab01\lab01.cpp(59,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  lab01.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\lab01.exe
