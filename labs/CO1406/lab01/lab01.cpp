@@ -43,8 +43,8 @@ int binarySearch(int t[], int l, int r, int key)
     return -1;
 }
 
-int random(int l, int h) {
-    return l + int((h-l+1) * rand() / (RAND_MAX + 1.0));
+int random(int min, int max) {
+    return min + int((max-min+1) * rand() / (RAND_MAX + 1.0));
 }
 
 void createRandomArray(int t[], int n, int l, int h) {
@@ -56,7 +56,7 @@ void createRandomArray(int t[], int n, int l, int h) {
 
 int main()
 {
-    srand(time(NULL));
+    srand(123456);
     clock_t start, finish;
     double  durationLinear=0, durationBinary=0;
 
@@ -89,7 +89,18 @@ int main()
     }
     
     cout << "Benchmark results" << endl;
-    cout << "Duration Linear:" << durationLinear << endl;
-    cout << "Duration Binary:" << durationBinary << endl;
+    cout << "Duration Linear:" << durationLinear/REPETITIONS << endl;
+    cout << "Duration Binary:" << durationBinary/ REPETITIONS << endl;
 
 }
+
+
+
+void printArray(int t[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << t[i] << " ";
+    }
+    cout << endl;
+}
+
+
