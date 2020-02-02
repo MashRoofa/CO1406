@@ -46,7 +46,7 @@ string getCard(Card& card);
 void printDeck(Deck& deck);
 void fillDeck(Deck* deck);
 void shuffleDeck(Deck* deck);
-void dealDeck(const Deck* deck, Player* players);
+void dealDeck(Deck* deck, Player* players);
 void playGame(Deck* deck, Player* players);
 
 int main(int argc, char* argv[]) {
@@ -96,7 +96,7 @@ void printDeck(Deck* deck) {
 	cout << "\n---Deck---\n";
 	/* loop through deck->cards */
 	for (int i = 0; i < DECK_SIZE; i++) {
-		cout << faces[deck->cards[i].face] << " of " << suits[deck->cards[i].suit] << "\t";
+		cout << getCard(deck->cards[i]) << "\t";
 	}
 	cout << "\n";
 }
@@ -128,7 +128,6 @@ void swap(Card& a, Card& b) {
 
 void shuffleDeck(Deck* deck) {
 	int j;     /* variable to hold random value between 0 - 51 */
-	Card temp; /* define temporary structure for swapping Cards */
 
 	/* loop through deck->cards randomly swapping Cards */
 	for (int i = 0; i < DECK_SIZE; i++) {
@@ -141,7 +140,7 @@ void shuffleDeck(Deck* deck) {
 }
 
 /* deal cards */
-void dealDeck(const Deck* deck, Player* players) {
+void dealDeck(Deck* deck, Player* players) {
 	int remainingCards = DECK_SIZE % NO_PLAYERS;
 	
 	for (int i = 0; i < NO_PLAYERS; i++) {

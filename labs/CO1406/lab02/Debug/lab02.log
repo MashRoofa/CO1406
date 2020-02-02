@@ -3,5 +3,4 @@
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab02\lab02.cpp(25,2): warning C4091: 'typedef ': ignored on left of 'Deck' when no variable is declared
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab02\lab02.cpp(31,2): warning C4091: 'typedef ': ignored on left of 'Player' when no variable is declared
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab02\lab02.cpp(53,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab02\lab02.cpp(131,7): warning C4101: 'temp': unreferenced local variable
   lab02.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\lab02.exe
