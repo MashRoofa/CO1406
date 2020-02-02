@@ -183,63 +183,42 @@ unsigned int findMovie(movieDatabase& db, string key) {
 
 unsigned int findMovieMaxRating(movieDatabase& db) {
     //search for the movie with a the maximum rating and return its position
-    unsigned short maxRatingIndex = 0;
-
-    for (int i = 1; i < db.count; i++)
-        if (db.movies[i].rating > db.movies[maxRatingIndex].rating) maxRatingIndex = i;
-
-    return maxRatingIndex;
+   
 }
 
 void findMoviesByYear(movieDatabase& db, unsigned short year) {
     //search for all movies that were released in a specific year
-    for (int i = 0; i < db.count; i++)
-        if (db.movies[i].year == year)
-            cout << printMovie(db.movies[i]);
+
 }
 
 void updateMovie(movieDatabase& db, string key, string newTitle, unsigned short newYear, unsigned short newRating) {
     //search for a movie with a title equal to the key using findMovie
     //if one is found, update its title, year and rating with the new data   
-    unsigned int pos = -1;
-    pos = findMovie(db, key);
-    if (pos != -1) {
-        db.movies[pos].title = newTitle;
-        db.movies[pos].year = newYear;
-        db.movies[pos].rating = newRating;
-    }
+    
     //otherwise, print that the selected movie was not found
-    else {
-        cout << "Movie " << key << " not found!" << endl;
-    }
+    
 
 }
 
 void deleteMovie(movieDatabase& db, string key) {
-    unsigned int pos = -1;
+    
     //find the position of the element you are trying to delete using findMovie
-    pos = findMovie(db, key);
+    
     //check if the position is found
     //if it is not found then print that the specific movie is not found (include the name of the movie)
-    if (pos == -1) {
-        cout << "Movie " << key << " not found!" << endl;
-    }
+    
     //if it is found then delete the movie from the database
     //it is important that the movie slot does not remain empty
-    else {
-        for (int i = pos; i < db.count; i++) db.movies[i] = db.movies[i + 1];
-        db.count--;
-    }
 
 }
 
 int compare(const void* a, const void* b)
 {
-    return (*(movie*)a).rating - (*(movie*)b).rating;
+   //implement compare as it is required by quicksort
 }
 
 void sortMovies(movieDatabase& db) {
     //use quicksort (qsort) to sort the movie database
-    qsort(db.movies, db.count, sizeof(movie), compare);
+   
 }
 
