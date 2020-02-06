@@ -255,7 +255,12 @@ void deleteMovie(movieDatabase& db, string key) {
     //if it is found then delete the movie from the database
     //it is important that the movie slot does not remain empty
     else {
-        for (int i = pos; i < db.count; i++) db.movies[i] = db.movies[i + 1];
+        //O(n)
+        //for (int i = pos; i < db.count; i++) db.movies[i] = db.movies[i + 1];
+
+        //O(1)
+        db.movies[pos] = db.movies[db.count-1];
+
         db.count--;
     }
 

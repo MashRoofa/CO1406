@@ -179,11 +179,12 @@ unsigned int findMovie(movieDatabase& db, string key) {
     //if one is found, return the key
     //otherwise, return -1
 
+    return 0;
 }
 
 unsigned int findMovieMaxRating(movieDatabase& db) {
     //search for the movie with a the maximum rating and return its position
-   
+    return 0;
 }
 
 void findMoviesByYear(movieDatabase& db, unsigned short year) {
@@ -215,6 +216,7 @@ void deleteMovie(movieDatabase& db, string key) {
 int compare(const void* a, const void* b)
 {
    //implement compare as it is required by quicksort
+    return 0;
 }
 
 void sortMovies(movieDatabase& db) {
