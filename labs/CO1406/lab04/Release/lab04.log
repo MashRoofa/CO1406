@@ -1,0 +1,11 @@
+﻿  lab04.cpp
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab04\lab04.cpp(117,15): warning C4101: 'mid2': unreferenced local variable
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab04\lab04.cpp(117,9): warning C4101: 'mid1': unreferenced local variable
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab04\lab04.cpp(178,2): warning C4091: 'typedef ': ignored on left of 'algorithm' when no variable is declared
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab04\lab04.cpp(209,9): warning C4101: 'sizeIndex': unreferenced local variable
+  Generating code
+  Finished generating code
+  2 of 174 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  lab04.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Release\lab04.exe
