@@ -83,10 +83,10 @@ int binarySearch(int t[], int l, int r, int key)
 
         // The key lies in between l and mid 
         if (t[mid] > key)
-            l = mid + 1;
+            r = mid - 1;
         // The key lies in between mid and r
         else if (t[mid] < key)
-            r = mid - 1;
+            l = mid + 1;
     }
     // key not found
     return -1;
@@ -220,8 +220,6 @@ int main()
     for (int sizeIndex = 0; sizeIndex < arraySizesCount; sizeIndex++) {
         //initialize array with random numbers
         createRandomArray(array, arraySizes[sizeIndex], MIN, MAX);
-
-        
 
         for (int algoIndex = 0; algoIndex < algorithmsCount; algoIndex++ ) {
             algo = algorithms[algoIndex].function;
