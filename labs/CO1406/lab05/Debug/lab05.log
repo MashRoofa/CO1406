@@ -1,3 +1,4 @@
-﻿  lab05.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (lab05.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  lab05.cpp
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab05\lab05.cpp(179): warning C4715: 'Queue<int>::dequeue': not all control paths return a value
-  lab05.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\lab05.exe
+  lab05.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\05 stacks and queues.exe

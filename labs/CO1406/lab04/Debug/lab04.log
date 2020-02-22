@@ -1,6 +1,7 @@
-﻿  lab04.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (lab04.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  lab04.cpp
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab04\lab04.cpp(117,15): warning C4101: 'mid2': unreferenced local variable
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab04\lab04.cpp(117,9): warning C4101: 'mid1': unreferenced local variable
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab04\lab04.cpp(178,2): warning C4091: 'typedef ': ignored on left of 'algorithm' when no variable is declared
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab04\lab04.cpp(209,9): warning C4101: 'sizeIndex': unreferenced local variable
-  lab04.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\lab04.exe
+  lab04.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\04 benchmark search.exe

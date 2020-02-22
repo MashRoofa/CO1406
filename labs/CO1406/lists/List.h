@@ -40,9 +40,10 @@ struct List {
         return nullptr;
     }
 
-    Node<T>* kth(unsigned int k) {
+    Node<T>* access(unsigned int k) {
         if (size >= k) {
-            for (Node<T>* tmp = head, int i = 0; tmp != nullptr && i < k; tmp = tmp->next, i++);
+            Node<T>* tmp = head; 
+            for (int i = 1; tmp != nullptr && i < k; tmp = tmp->next, i++);
             return tmp;            
         }
         else return nullptr;
@@ -60,7 +61,7 @@ struct List {
         if (!isEmpty()) {
             Node<T>* tmp = head;
             head = head->next;
-            free(tmp);
+            delete tmp;
             size--;
         }  
         else cout << "List is empty\n\n";
@@ -85,11 +86,11 @@ struct List {
 
             if (size == 1) {
                 head = nullptr;
-                free(tmp);
+                delete tmp;
             }
             else {
                 while (tmp->next->next != nullptr) tmp = tmp->next;
-                free(tmp->next);
+                delete tmp->next;
                 tmp->next = nullptr;
             }
             size--;
@@ -123,13 +124,13 @@ struct List {
             if (head->data == data) {
                 head = head->next;
                 size--;
-                free(tmp);
+                delete tmp;
             }
             else {
                 while (tmp != nullptr) {
                     if (tmp->data == data) {
                         prev->next = tmp->next;
-                        free(tmp);
+                        delete tmp;
                         size--;
                         break;
                     }

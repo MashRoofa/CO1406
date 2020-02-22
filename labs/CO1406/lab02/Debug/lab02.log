@@ -1,6 +1,7 @@
-﻿  lab02.cpp
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (lab02.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  lab02.cpp
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab02\lab02.cpp(20,2): warning C4091: 'typedef ': ignored on left of 'Card' when no variable is declared
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab02\lab02.cpp(25,2): warning C4091: 'typedef ': ignored on left of 'Deck' when no variable is declared
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab02\lab02.cpp(31,2): warning C4091: 'typedef ': ignored on left of 'Player' when no variable is declared
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\lab02\lab02.cpp(53,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  lab02.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\lab02.exe
+  lab02.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\02 structs cards.exe

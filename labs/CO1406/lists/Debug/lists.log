@@ -1,2 +1,3 @@
-﻿  lists.cpp
-  lists.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\lists.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (lists.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  lists.cpp
+  lists.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\06 lists.exe
