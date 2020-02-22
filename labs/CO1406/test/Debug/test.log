@@ -1,0 +1,7 @@
+﻿  test.cpp
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\test\test.cpp(171,2): warning C4018: '<=': signed/unsigned mismatch
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\test\test.cpp(166): message : while compiling class template member function 'void Queue<int>::print(void)'
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\test\test.cpp(195): message : see reference to function template instantiation 'void Queue<int>::print(void)' being compiled
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\test\test.cpp(191): message : see reference to class template instantiation 'Queue<int>' being compiled
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\test\test.cpp(143): warning C4715: 'Queue<int>::deQueue': not all control paths return a value
+  test.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\test.exe

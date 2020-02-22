@@ -5,6 +5,7 @@
 
 using namespace std;
 
+/*
 int mpower(int a, int n) {
 	if (n == 0) return 1;
 	return a * mpower(a, n - 1);
@@ -65,7 +66,7 @@ int binarySearch(int t[], int l, int r, int key)
 
 int main()
 {
-	/*
+	
 	string s;
 	s = "";
 	cout << s<< ":" << boolalpha << isPalindrome(s) << "\n";
@@ -79,9 +80,9 @@ int main()
 	cout << s << ":" << boolalpha << isPalindrome(s) << "\n";
 	s = "abbca";
 	cout << s << ":" << boolalpha << isPalindrome(s) << "\n";
-	*/
+	
 
-	/*
+	
 	cout << "\n\nPalindromes\n";
 	string s;
 	s = "";
@@ -96,7 +97,7 @@ int main()
 	cout << s << ":" << boolalpha << isPalindrome(s, 0, s.size() - 1) << "\n";
 	s = "abbca";
 	cout << s << ":" << boolalpha << isPalindrome(s, 0, s.size() - 1) << "\n";
-	*/
+	
 
 	//cout << "\n\nHanoi Towers\n"; 
 	//hanoi(8, 'A', 'B', 'C');
@@ -104,3 +105,103 @@ int main()
 	
 
 }
+
+*/
+
+# define MAX_SIZE 10
+
+
+template<typename T>
+struct Queue
+{
+	T _data[MAX_SIZE];
+	unsigned int _front = -1;
+	unsigned int _back = -1;
+
+	bool isEmpty()
+	{
+		if (_front == -1) return true;
+		if (_front > _back) return true;
+		return false;
+	}
+
+	bool isFull()
+	{
+		if (_back == (MAX_SIZE - 1)) return true;
+		return false;
+	}
+
+	T deQueue()
+	{
+		if (!isEmpty())
+		{
+			T result = _data[_front];
+			_front;
+			return result;
+
+		}
+	}
+
+	void enQueue(T var)
+	{
+		if (isEmpty())
+		{
+			_front = 0;
+			_back = 0;
+			_data[0] = var;
+
+		}
+		else if (!isFull())
+		{
+			_back++;
+			_data[_back] = var;
+		}
+		else cout << " FULL" << endl;
+
+
+
+	}
+
+	void print()
+	{
+		if (!isEmpty())
+		{
+			cout << "Queue\n";
+			cout << "start of the stack" << endl;
+			for (int index = _front; index <= _back; index++)
+			{
+				cout << _data[index] << "\t";
+			}
+
+			cout << endl;
+			cout << "front[" << _front << "]" << _data[_front] << "\t";
+			cout << "back[" << _back << "]" << _data[_back] << "\t";
+
+		}
+		else cout << "QUEUE is Empty\n\n ";
+	}
+
+};
+
+
+int main()
+{
+	
+
+	Queue<int> Queue1;
+	for (int i = 1; i < 12; i++)
+	{
+		Queue1.enQueue(i);
+		Queue1.print();
+	}
+	for (int i = 0; i < 3; i++)
+	{
+		Queue1.deQueue();
+		Queue1.print();
+	}
+
+
+
+}
+
+

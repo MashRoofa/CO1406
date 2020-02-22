@@ -1,0 +1,5 @@
+﻿  stack applications.cpp
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\stack applications\stack applications.cpp(112,2): warning C4091: 'typedef ': ignored on left of 'Coordinates' when no variable is declared
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\stack applications\Stack.h(35): warning C4715: 'Stack<char>::top': not all control paths return a value
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\stack applications\Stack.h(35): warning C4715: 'Stack<Coordinates>::top': not all control paths return a value
+  stack applications.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\stack applications.exe
