@@ -1,0 +1,3 @@
+﻿  rand5andrand7.cpp
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\challenges\rand5andrand7.cpp(23,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  challenges.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\challenges.exe

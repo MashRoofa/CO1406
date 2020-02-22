@@ -26,6 +26,28 @@ struct List {
         return newNode;
     }
 
+    bool exists(T data) {
+        for (Node<T>* tmp = head; tmp != nullptr; tmp = tmp->next) {
+            if (tmp->data == data) return true;
+        }
+        return false;
+    }
+
+    Node<T>* find(T data) {
+        for (Node<T>* tmp = head; tmp != nullptr; tmp = tmp->next) {
+            if (tmp->data == data) return tmp;
+        }
+        return nullptr;
+    }
+
+    Node<T>* kth(unsigned int k) {
+        if (size >= k) {
+            for (Node<T>* tmp = head, int i = 0; tmp != nullptr && i < k; tmp = tmp->next, i++);
+            return tmp;            
+        }
+        else return nullptr;
+    }
+
     void insertFront(T newData) {
         Node<T>* newNode = createNode(newData);
         
@@ -34,26 +56,14 @@ struct List {
         size++;
     }
 
-    bool exists(T data) {
-        for (Note<T> tmp = head; tmp != NULL; tmp = tmp->next) {
-            if (tmp->data == data) return true;
-        }
-        return false;
-    }
-
-    Node<T> find(T data) {
-        for (Note<T> tmp = head; tmp != NULL; tmp = tmp->next) {
-            if (tmp->data == data) return tmp;
-        }
-        return nullptr;
-    }
-
     void deleteFront() {
         if (!isEmpty()) {
             Node<T>* tmp = head;
             head = head->next;
             free(tmp);
-        }        
+            size--;
+        }  
+        else cout << "List is empty\n\n";
     }
 
     void insertBack(T newData) {
@@ -63,7 +73,7 @@ struct List {
         }
         else {
             Node<T>* tmp;
-            for (tmp = head; tmp->next != NULL; tmp = tmp->next);
+            for (tmp = head; tmp->next != nullptr; tmp = tmp->next);
             tmp->next = newNode;
         }
         size++;
@@ -74,13 +84,17 @@ struct List {
             Node<T>* tmp = head;
 
             if (size == 1) {
-                head = head->next;
+                head = nullptr;
                 free(tmp);
             }
             else {
-                for (tmp = head; tmp->next != NULL; tmp = tmp->next);
+                while (tmp->next->next != nullptr) tmp = tmp->next;
+                free(tmp->next);
+                tmp->next = nullptr;
             }
+            size--;
         }
+        else cout << "List is empty\n\n";
     }
 
     void insertSorted(T newData) {
@@ -94,26 +108,51 @@ struct List {
         }
         else {
             Node<T>* tmp;
-            for (tmp = head; (tmp->next != NULL) && (tmp->next->data <= newNode->data); tmp = tmp->next);
+            for (tmp = head; (tmp->next != nullptr) && (tmp->next->data <= newNode->data); tmp = tmp->next);
             newNode->next = tmp->next;
             tmp->next = newNode;
         }
         size++;
     }
-    
+
+    void deleteNode(T data){        
+        Node<T>* tmp = head;
+        Node<T>* prev = head;
+
+        if (!isEmpty()) {
+            if (head->data == data) {
+                head = head->next;
+                size--;
+                free(tmp);
+            }
+            else {
+                while (tmp != nullptr) {
+                    if (tmp->data == data) {
+                        prev->next = tmp->next;
+                        free(tmp);
+                        size--;
+                        break;
+                    }
+                    prev = tmp;
+                    tmp = tmp->next;
+                }
+            }
+        }
+        else cout << "List is empty\n\n";
+    }
 
     void print() {
         if (!isEmpty()) {
             cout << "List\n";
             /*
             Node<T>* tmp = head;
-            while (tmp != NULL) {
+            while (tmp != nullptr) {
                 cout << tmp->data << "\t";
                 tmp = tmp->next;
             }
             */
                         
-            for (Node<T>* tmp = head; tmp!=NULL; tmp = tmp->next) {
+            for (Node<T>* tmp = head; tmp!= nullptr; tmp = tmp->next) {
                 cout << tmp->data << "\t";
             }            
             cout << "\n";

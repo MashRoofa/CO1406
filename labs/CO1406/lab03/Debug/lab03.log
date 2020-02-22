@@ -1,1 +1,8 @@
-﻿  lab03.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\lab03.exe
+﻿  lab03.cpp
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab03\lab03.cpp(18,2): warning C4091: 'typedef ': ignored on left of 'movie' when no variable is declared
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab03\lab03.cpp(23,2): warning C4091: 'typedef ': ignored on left of 'movieDatabase' when no variable is declared
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab03\lab03.cpp(148,27): warning C4018: '<': signed/unsigned mismatch
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab03\lab03.cpp(206,23): warning C4018: '<': signed/unsigned mismatch
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab03\lab03.cpp(216,23): warning C4018: '<': signed/unsigned mismatch
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\lab03\lab03.cpp(224,23): warning C4018: '<': signed/unsigned mismatch
+  lab03.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\lab03.exe
