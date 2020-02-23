@@ -175,9 +175,11 @@ MazeProblem* loadMaze(string filename) {
 
     file >> problem->start.row;
     file >> problem->start.col;
+    problem->start.direction = 'S';
 
     file >> problem->finish.row;
     file >> problem->finish.col;
+    problem->start.direction = 'F';
 
     problem->maze = new int* [problem->rows];
     for (int i = 0; i < problem->rows; i++) {
@@ -204,9 +206,9 @@ void solveMaze(MazeProblem* problem, bool debug = false) {
     printMaze(problem->maze, problem->rows, problem->columns);
 
     Stack<Coordinates> stack;
-    Coordinates start{ problem->start.row, problem->start.col, 'S' };
-    Coordinates finish{ problem->finish.row, problem->finish.col, 'F' };
-    stack.push(start);
+    //Coordinates start{ problem->start.row, problem->start.col, 'S' };
+    //Coordinates finish{ problem->finish.row, problem->finish.col, 'F' };
+    stack.push(problem->start);
 
     while (!stack.isEmpty()) {
 
@@ -214,7 +216,7 @@ void solveMaze(MazeProblem* problem, bool debug = false) {
         problem->maze[currentPos.row][currentPos.col] = 2;//visited
         if(debug) printMaze(problem->maze, problem->rows, problem->columns);
 
-        if (match(currentPos, finish)) {
+        if (match(currentPos, problem->finish)) {
             cout << "Path Found!" << endl;
             printStackReverse(stack);
             cout << "\n\n" << endl;
