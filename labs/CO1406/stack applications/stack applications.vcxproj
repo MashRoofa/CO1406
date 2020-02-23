@@ -155,6 +155,11 @@
     <ClInclude Include="Queue2Stacks.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="maze10_16.dat" />
+    <None Include="maze6_6.dat" />
+    <None Include="maze6_7.dat" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

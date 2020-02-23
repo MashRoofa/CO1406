@@ -1,6 +1,8 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (stack applications.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   stack applications.cpp
-\\Mac\Home\Documents\github\CO1406\labs\CO1406\stack applications\stack applications.cpp(112,2): warning C4091: 'typedef ': ignored on left of 'Coordinates' when no variable is declared
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\stack applications\stack applications.cpp(136,2): warning C4091: 'typedef ': ignored on left of 'Coordinates' when no variable is declared
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\stack applications\stack applications.cpp(144,2): warning C4091: 'typedef ': ignored on left of 'MazeProblem' when no variable is declared
+\\Mac\Home\Documents\github\CO1406\labs\CO1406\stack applications\Stack.h(35): warning C4715: 'Stack<int>::top': not all control paths return a value
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\stack applications\Stack.h(35): warning C4715: 'Stack<char>::top': not all control paths return a value
 \\Mac\Home\Documents\github\CO1406\labs\CO1406\stack applications\Stack.h(35): warning C4715: 'Stack<Coordinates>::top': not all control paths return a value
   stack applications.vcxproj -> \\Mac\Home\Documents\github\CO1406\labs\CO1406\Debug\05 stack applications.exe

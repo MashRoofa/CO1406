@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <string>
 
 #define MAX_SIZE 100
 #include "Stack.h"
@@ -6,6 +8,24 @@
 #include "Queue2Stacks.h"
 
 using namespace std;
+
+void int2Binary(unsigned int x) {
+    Stack<int> stack;
+    
+    while (x > 1) {
+        stack.push(x % 2);
+        x = x / 2;
+    }
+    stack.push(x);
+
+    while (!stack.isEmpty()) {
+        cout<< stack.top();
+        stack.pop();
+    }
+}
+
+
+
 
 bool match(char a, char b) {
     return ((a == '(' && b == ')') || 
@@ -37,6 +57,9 @@ bool isBalanced(string statement) {
     }
     return true;
 }
+
+
+
 
 int opPrecedence(char c)
 {
@@ -71,7 +94,7 @@ string reversePolishNotation(string s)
 
         else if (c == ')')
         {
-            // If the scanned character is an ‘)’, pop and to output string from the stack 
+            // If the scanned character is an ‘)’, pop everything to output string from the stack 
             // until an ‘(‘ is encountered. 
             while (stack.top() != '(')
             {
@@ -104,34 +127,130 @@ string reversePolishNotation(string s)
 
 }
 
-enum Direction { UP, RIGHT, DOWN, LEFT };
+
+
 
 typedef struct Coordinates {
     int row; int col;
-    Direction direction = UP;
+    char direction = 'U';
 };
 
-bool match(Coordinates a, Coordinates b) {
-    return (a.col == b.col) && (a.row == b.row);
+typedef struct MazeProblem {
+    int** maze;
+    int rows;
+    int columns;
+    Coordinates start;
+    Coordinates finish;
+};
+
+bool match(Coordinates& a, Coordinates& b) {
+    return (a.row==b.row && a.col==b.col);
 }
 
-void printMaze(char maze[][16], Coordinates c)
-{
-    printf(" ");
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 16; j++) {
-            if (j == 15)
-                printf("\n");
-            if (i == c.row && j == c.col) cout << "c";
-            else cout<< maze[i][j];
+void printMaze(int** maze, int rows, int columns) {
+    /*
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            cout<< maze[i][j];
+        }
+        cout << endl;
+    }
+    */
+    for (int i = rows-1; i >= 0; i--) {
+        for (int j = 0; j < columns; j++) {
+            cout << maze[i][j];
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
+MazeProblem* loadMaze(string filename) {
+    MazeProblem* problem = new MazeProblem();
+
+    ifstream file(filename);
+   
+    file >> problem->rows;
+    file >> problem->columns;
+
+    file >> problem->start.row;
+    file >> problem->start.col;
+
+    file >> problem->finish.row;
+    file >> problem->finish.col;
+
+    problem->maze = new int* [problem->rows];
+    for (int i = 0; i < problem->rows; i++) {
+        problem->maze[i] = new int[problem->columns];
+    }
+    for (int i = 0; i < problem->rows; i++) {
+        for (int j = 0; j < problem->columns; j++) {
+            file >> problem->maze[i][j];
         }
     }
-    printf("\n");
-    // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return problem;
+}
+
+void printStackReverse(Stack<Coordinates> s) {
+    if (!s.isEmpty()) {
+        char direction = s.top().direction;
+        s.pop();
+        printStackReverse(s);
+        cout << direction << " ";
+    }
+}
+
+void solveMaze(MazeProblem* problem, bool debug = false) {
+    printMaze(problem->maze, problem->rows, problem->columns);
+
+    Stack<Coordinates> stack;
+    Coordinates start{ problem->start.row, problem->start.col, 'S' };
+    Coordinates finish{ problem->finish.row, problem->finish.col, 'F' };
+    stack.push(start);
+
+    while (!stack.isEmpty()) {
+
+        Coordinates currentPos = stack.top();
+        problem->maze[currentPos.row][currentPos.col] = 2;//visited
+        if(debug) printMaze(problem->maze, problem->rows, problem->columns);
+
+        if (match(currentPos, finish)) {
+            cout << "Path Found!" << endl;
+            printStackReverse(stack);
+            cout << "\n\n" << endl;
+            return ;
+        }
+
+        if ((currentPos.row + 1 < problem->rows) && problem->maze[currentPos.row + 1][currentPos.col] == 1)
+            stack.push(Coordinates{ currentPos.row + 1, currentPos.col, 'U' });
+        else if ((currentPos.col + 1 < problem->columns) && problem->maze[currentPos.row][currentPos.col + 1] == 1)
+            stack.push(Coordinates{ currentPos.row, currentPos.col + 1, 'R' });
+        else if ((currentPos.row - 1 >= 0) && problem->maze[currentPos.row - 1][currentPos.col] == 1)
+            stack.push(Coordinates{ currentPos.row - 1, currentPos.col, 'D' });
+        else if ((currentPos.col - 1 >= 0) && problem->maze[currentPos.row][currentPos.col - 1] == 1)
+            stack.push(Coordinates{ currentPos.row, currentPos.col - 1, 'L' });
+        else {
+            //dead end
+            problem->maze[currentPos.row][currentPos.col] = 0;
+            stack.pop();
+            continue;
+        }
+
+    }
+
+    cout << "Path NOT found!" << endl;
 }
 
 int main()
 {
+   
+    /*
+    cout << 8 << " to binary is "; int2Binary(8); cout << endl;
+    cout << 11 << " to binary is "; int2Binary(11); cout << endl;
+    cout << 13 << " to binary is "; int2Binary(13); cout << endl;
+    cout << 17 << " to binary is "; int2Binary(17); cout << endl;
+    */
+
     /*
     string test1 = "{ [ ] }";  
     string test2 = "( [ { } { } [ ] ) )";
@@ -171,48 +290,16 @@ int main()
     cout.width(50); cout << left << test6 << right << reversePolishNotation(test6) << "\n";
     */
     
-
-    char maze[10][16] = { "  XXXXXXXXXXXXX",
-                          "X X X XXX X  XX",
-                          "X             X",
-                          "X X XXXXXXX X X",
-                          "X X   X   X   X",
-                          "X XXX  XX  XXXX",
-                          "X    X X      X",
-                          "XX X X X XXX XX",
-                          "XX   X   X     ",
-                          "XXXXXXXXXXXXXX " };
-
+    MazeProblem* problem;
     
-    Stack<Coordinates> stack;
-    Coordinates current{ 0, 0};
-    stack.push(current);
+    problem = loadMaze("maze6_6.dat");
+    solveMaze(problem);
+    
+    problem = loadMaze("maze6_7.dat");
+    solveMaze(problem);
 
-    while (!stack.isEmpty()) {
-        
-        Coordinates currentPos = stack.top();
-        printMaze(maze, currentPos);
-
-        if (currentPos.row == 9 && currentPos.col == 15) { cout << "Path Found!" << endl; return -1; }
-        
-        if (maze[currentPos.row + 1][currentPos.col]==' ' && !match(currentPos, Coordinates{ currentPos.row + 1, currentPos.col}))
-            stack.push(Coordinates{ currentPos.row + 1, currentPos.col});
-        else if (maze[currentPos.row][currentPos.col+1] == ' ' && !match(currentPos, Coordinates{ currentPos.row, currentPos.col+1}))
-            stack.push(Coordinates{ currentPos.row, currentPos.col + 1});
-        else if (maze[currentPos.row-1][currentPos.col] == ' ' && !match(currentPos, Coordinates{ currentPos.row -1, currentPos.col}))
-            stack.push(Coordinates{ currentPos.row - 1, currentPos.col});
-        else if (maze[currentPos.row][currentPos.col - 1] == ' ' && !match(currentPos, Coordinates{ currentPos.row, currentPos.col-1}))
-            stack.push(Coordinates{ currentPos.row, currentPos.col - 1,});
-        else {
-            //deadend
-            maze[currentPos.row][currentPos.col] = 'X';            
-            stack.pop();
-            continue;
-        }
-
-    }
-
-    cout << "Path NOT found!" << endl;
-
+    problem = loadMaze("maze10_16.dat");
+    solveMaze(problem);
+    
 
 }
