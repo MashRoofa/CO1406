@@ -26,18 +26,21 @@ struct List {
         return newNode;
     }
 
-    bool exists(T data) {
-        for (Node<T>* tmp = head; tmp != nullptr; tmp = tmp->next) {
-            if (tmp->data == data) return true;
-        }
-        return false;
-    }
-
     Node<T>* find(T data) {
         for (Node<T>* tmp = head; tmp != nullptr; tmp = tmp->next) {
             if (tmp->data == data) return tmp;
         }
         return nullptr;
+    }
+
+    bool exists(T data) {
+        /*
+        for (Node<T>* tmp = head; tmp != nullptr; tmp = tmp->next) {
+            if (tmp->data == data) return true;
+        }
+        return false;
+        */
+        return find(data) != nullptr;
     }
 
     Node<T>* access(unsigned int k) {

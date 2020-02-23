@@ -6,6 +6,10 @@ template <typename T>
 struct Queue {
 	List<T> list;
 
+	bool isEmpty() {
+		return list.isEmpty();
+	}
+
 	void enqueue(T data) {
 		list.insertBack(data);
 	}
