@@ -1,20 +1,16 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
 #define MAX_SIZE 100
 #include "Stack.h"
 #include "Queue.h"
-#include "Queue2Stacks.h"
+//#include "Queue2Stacks.h"
 
 using namespace std;
 
 void int2Binary(unsigned int x) {
     
 }
-
-
-
 
 bool match(char a, char b) {
     return ((a == '(' && b == ')') ||
@@ -23,19 +19,13 @@ bool match(char a, char b) {
 }
 
 bool isBalanced(string statement) {
-   
+   return true;
 }
-
-
 
 string reversePolishNotation(string s)
 {
-    
-
+    return "";
 }
-
-
-
 
 typedef struct Coordinates {
     int row; int col;
@@ -72,7 +62,7 @@ MazeProblem* loadMaze(string filename) {
 
     file >> problem->finish.row;
     file >> problem->finish.col;
-    problem->start.direction = 'F';
+    problem->finish.direction = 'F';
 
     problem->maze = new int* [problem->rows];
     for (int i = 0; i < problem->rows; i++) {
@@ -85,8 +75,6 @@ MazeProblem* loadMaze(string filename) {
     }
     return problem;
 }
-
-
 
 void solveMaze(MazeProblem* problem, bool debug = false) {
     
@@ -154,6 +142,5 @@ int main()
     problem = loadMaze("maze10_16.dat");
     solveMaze(problem);
     */
-
 
 }
