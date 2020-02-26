@@ -155,5 +155,5 @@ int main()
     solveMaze(problem);
     */
 
-
+    system("pause");
 }
